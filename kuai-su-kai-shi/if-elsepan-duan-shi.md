@@ -23,14 +23,14 @@ export default class Main extends Component {
     );
   }
 }
-
 ```
+
+![](/assets/img2-2-1.png)
 
 ## 使用 JavaScript 方式
 
 ```js
 import React, { Component } from 'react';
-
 
 export default class Main extends Component {
   render() {
@@ -55,3 +55,5 @@ export default class Main extends Component {
   }
 }
 ```
+
+![](/assets/img2-2-2.png)
