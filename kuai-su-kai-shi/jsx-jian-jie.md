@@ -1,0 +1,111 @@
+# JSX 簡介
+
+### 何謂 JSX？ 
+JSX 語法類似 HTML，全名為(JavaScript XML)，在 React 中會將 JSX 標籤語法轉換成 `React.createElement` 編譯讓網頁看得懂的元件，元件非常方便，因為我們可以將程式碼集中在每個文件中，使其更容易維護。
+
+
+
+#### 範例1.
+
+```html
+<div> card box </div>
+```
+轉變成
+```js
+React.createElement('div',null,'card box');
+```
+
+#### 範例2.
+
+```js
+<cardBox/>
+```
+轉變成
+```js
+React.createElement('cardBox',null);
+```
+
+## From JSX to HTML
+
+把全部的 JSX 轉譯成 JavaScript 再渲染到網頁上最後變成 HTML，記住在 JSX 中是 className 等同於 HTML 中的 class 屬性，原因在於因為在 React 是以 JavaScript 下去編譯的為了避免 class 類別的保留字才區個開來的。
+
+- JSX
+
+```hyml
+<div>
+  <h3>stories App</h3>
+  <p className="lead">sample paragraph</p>
+</div>
+```
+
+- JavaScript
+
+```js
+  React.createElement('div',null,
+  React.createElement('h3', null, 'stories App'),
+  React.createElement('p',{className:'lead'},'sample paragraph'));
+```
+
+## 建立函式元件
+
+在 React 創建一個元件中保留原生 HTML 標籤以小寫表示像是 `<div></div>`、`<p></p>`，而自己所建立的標籤元件則以大寫開頭，一方面是好辨識這是你自己所客製化的標籤元件。
+
+
+```jsx
+// app.js
+import React, { Component } from 'react';
+import './App.css';
+import Person from './Person/Person';
+
+class App extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h1>Hello World! React</h1>
+        <Person />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+```jsx
+// Person.js
+import React from 'react';
+
+const person =()=>{
+  return <p> I'm a Person! </p>
+}
+
+export default person;
+```
+
+
+## 總結
+
+1. 元件(Components) 是 React 應用程序的核心，實際上 React 只是一個創建組件的核心庫。因此，一個典型的 React 應用程序可以被描述為一個組件樹並且有一個根元件（"App"），然後可能無限量的嵌套子元件。
+
+2. 每個元件都需要返回並渲染 JSX 標籤，它定義了哪個 HTML 標籤最終應該呈現給真正的 DOM。
+
+3. JSX 並不是 HTML，但看起來很像。當仔細觀察時可以看到差異（例如，JSX 中的 className 與普通 HTML 中的  class）。
+
+4. 創建元件時，您可以選擇兩種不同的方式：
+
+  - Functional components 
+
+    又稱 presentational、dumb、stateless components
+
+    ```jsx
+    const cmp = () => { return <div>some JSX</div> }
+    ```
+  - class-based components
+
+    又稱 containers、smart、stateful components
+
+    ```jsx
+    class Cmp extends Component { render () { return <div>some JSX</div> } } 
+    ```
+
+參考： https://medium.freecodecamp.org/learn-react-js-in-5-minutes-526472d292f4
