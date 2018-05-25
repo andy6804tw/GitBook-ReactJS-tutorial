@@ -16,3 +16,30 @@ ReactDOM.render(
 ```
 
 ![](/assets/img2-3-1.png)
+
+
+## 更新元素渲染
+這邊時做一個[小時鐘](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)，透過 setInterval() 方法，每秒鐘調用一次 ReactDOM.render()。
+
+```js
+function tick() {
+  const element = (
+    <div>
+      <h1>Hello, world!</h1>
+      <h2>It is {new Date().toLocaleTimeString()}.</h2>
+    </div>
+  );
+  ReactDOM.render(
+    element,
+    document.getElementById('root')
+  );
+}
+
+setInterval(tick, 1000);
+```
+
+ReactJS 有很厲害的渲染機制，它只會更新必要的部分。
+
+![](https://doc.react-china.org/granular-dom-updates-c158617ed7cc0eac8f58330e49e48224.gif)
+
+
