@@ -13,7 +13,7 @@
 - Functional components
   - 又稱 presentational、dumb、stateless components
 
-```js
+```jsx
 // Person.js (函式元件寫法)
 import React from 'react';
 
@@ -30,7 +30,7 @@ export default person;
 - class-based components
   - 又稱 containers、smart、stateful components
 
-```js
+```jsx
 // Person.js (類別元件寫法)
 import React from 'react';
 

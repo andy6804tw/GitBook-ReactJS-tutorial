@@ -31,7 +31,7 @@ React.createElement('cardBox',null);
 
 - JSX
 
-```hyml
+```html
 <div>
   <h3>stories App</h3>
   <p className="lead">sample paragraph</p>

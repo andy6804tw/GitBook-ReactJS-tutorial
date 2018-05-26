@@ -3,7 +3,7 @@
 
 ## 在return中加入判斷式
 
-```js
+```jsx
 import React, { Component } from 'react';
 
 export default class Main extends Component {
@@ -29,7 +29,7 @@ export default class Main extends Component {
 
 ## 使用 JavaScript 方式
 
-```js
+```jsx
 import React, { Component } from 'react';
 
 export default class Main extends Component {

@@ -21,7 +21,7 @@ ReactDOM.render(
 ## 更新元素渲染
 這邊時做一個[小時鐘](https://codepen.io/gaearon/pen/gwoJZk?editors=0010)，透過 setInterval() 方法，每秒鐘調用一次 ReactDOM.render()。
 
-```js
+```jsx
 function tick() {
   const element = (
     <div>
