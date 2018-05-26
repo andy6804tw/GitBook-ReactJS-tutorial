@@ -157,3 +157,48 @@ ReactDOM.render(
 4. 瀏覽器每秒鐘調用tick()方法。在其中，Clock組件通過使用包含當前時間的對象調用setState()來調度UI更新。通過調用setState()，React知道狀態已經改變，並再次調用render()方法來確定屏幕上應當顯示什麼。這一次，render()方法中的this.state.date將不同，所以渲染輸出將包含更新的時間，並相應地更新DOM。
 
 5. 一旦Clock組件被從DOM中移除，React會調用componentWillUnmount()這個鉤子函數，定時器也就會被清除。
+
+
+## state 的使用方法
+
+### 建立 state 
+1.使用建構子
+
+```jsx
+constructor(props) {
+    super(props);
+    this.data = 'Hello';
+}
+```
+
+2.精簡方式
+```jsx
+state = {
+    data: 'Hello'
+}
+```
+
+### 更新 state
+
+- 錯誤方式
+```jsx
+// Wrong
+this.state.data = 'Hello World!';
+```
+
+- 正確方式
+```jsx
+// Correct
+this.setState({data: 'Hello World!'});
+```
+
+
+
+### state 非同步更新
+`this.props` 和 `this.state` 是異步更新的，不應該依靠它們的值來計算下一個狀態，而是像下面這樣。
+
+```jsx
+this.setState((prevState, props) => ({
+  counter: prevState.counter + props.increment
+}));
+```
