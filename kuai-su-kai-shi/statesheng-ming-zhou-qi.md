@@ -179,6 +179,7 @@ state = {
 ```
 
 ### 更新 state
+可以有很多個 state 變數，而每個變數可單獨更新。
 
 - 錯誤方式
 ```jsx
@@ -201,4 +202,32 @@ this.setState({data: 'Hello World!'});
 this.setState((prevState, props) => ({
   counter: prevState.counter + props.increment
 }));
+```
+
+### 父子元件傳遞 state
+元件(components)可以選擇將其 state 作為屬性傳遞給其子元件，以下[範例](https://codepen.io/gaearon/pen/zKRqNB?editors=0010)：
+
+```jsx
+function FormattedDate(props) {
+  return <h2>It is {props.date.toLocaleTimeString()}.</h2>;
+}
+
+class Clock extends React.Component {
+  .
+  .
+  .略
+  render() {
+    return (
+      <div>
+        <h1>Hello, world!</h1>
+        <FormattedDate date={this.state.date} />
+      </div>
+    );
+  }
+}
+
+ReactDOM.render(
+  <Clock />,
+  document.getElementById('root')
+);
 ```
