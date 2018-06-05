@@ -92,8 +92,9 @@ ReactDOM.render(
 ## 使用 Function 方式
 
 ```jsx
-class Main extends React.Component {  `render() {
-  const getGreeting = (user) => {
+class Main extends React.Component {
+  render() {
+    const getGreeting = (user) => {
       if (user) {
         return (
           <div>{user}
@@ -112,11 +113,10 @@ class Main extends React.Component {  `render() {
       </div>
     );
   }
-ReactDOM.render(
-  <Main />,
-  document.getElementById('root')
-);
-
+  ReactDOM.render(
+    <Main />,
+    document.getElementById('root')
+  );
 ```
 
 ![](/assets/img2-2-2.png)
