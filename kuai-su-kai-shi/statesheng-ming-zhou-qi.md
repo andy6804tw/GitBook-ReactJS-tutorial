@@ -24,7 +24,7 @@ function tick() {
 setInterval(tick, 1000);
 ```
 
-### 自定義組件並加入 props
+### 自定義元件並加入 props
 首先我們來複習前面幾章所教的，我們改寫上面寫法使用 Functional components，並將時間封裝成一個 Clock 元件，並將時間以 props 方式傳入。
 
 ```jsx
@@ -60,7 +60,7 @@ setInterval(tick, 1000);
 
 
 ### 使用 status 改寫
-`status` 與 `props` 十分相似，但是 status 是私有的，完全受控於當前組件，然而要使用 status 必須要使用 class-based components 寫法。
+`status` 與 `props` 十分相似，但是 status 是私有的，完全受控於當前元件，然而要使用 status 必須要使用 class-based components 寫法。
 
 ```jsx
 class Clock extends React.Component {
@@ -148,13 +148,13 @@ ReactDOM.render(
 
 讓我們快速回顧一下發生了什麼以及調用方法的順序：
 
-1. 當<Clock />被傳遞給ReactDOM.render()時，React調用Clock組件的構造函數。由於Clock需要顯示當前時間，所以使用包含當前時間的對象來初始化this.state。我們稍後會更新此狀態。
+1. 當<Clock />被傳遞給ReactDOM.render()時，React調用Clock元件的構造函數。由於Clock需要顯示當前時間，所以使用包含當前時間的對象來初始化this.state。我們稍後會更新此狀態。
 
-2. React然後調用Clock組件的render()方法。這是React了解屏幕上應該顯示什麼內容，然後React更新DOM以匹配Clock的渲染輸出。
+2. React然後調用Clock元件的render()方法。這是React了解屏幕上應該顯示什麼內容，然後React更新DOM以匹配Clock的渲染輸出。
 
-3. 當Clock的輸出插入到DOM中時，React調用componentDidMount()生命週期鉤子。在其中，Clock組件要求瀏覽器設置一個定時器，每秒鐘調用一次tick()。
+3. 當Clock的輸出插入到DOM中時，React調用componentDidMount()生命週期鉤子。在其中，Clock元件要求瀏覽器設置一個定時器，每秒鐘調用一次tick()。
 
-4. 瀏覽器每秒鐘調用tick()方法。在其中，Clock組件通過使用包含當前時間的對象調用setState()來調度UI更新。通過調用setState()，React知道狀態已經改變，並再次調用render()方法來確定屏幕上應當顯示什麼。這一次，render()方法中的this.state.date將不同，所以渲染輸出將包含更新的時間，並相應地更新DOM。
+4. 瀏覽器每秒鐘調用tick()方法。在其中，Clock元件通過使用包含當前時間的對象調用setState()來調度UI更新。通過調用setState()，React知道狀態已經改變，並再次調用render()方法來確定屏幕上應當顯示什麼。這一次，render()方法中的this.state.date將不同，所以渲染輸出將包含更新的時間，並相應地更新DOM。
 
 5. 一旦Clock組件被從DOM中移除，React會調用componentWillUnmount()這個鉤子函數，定時器也就會被清除。
 
