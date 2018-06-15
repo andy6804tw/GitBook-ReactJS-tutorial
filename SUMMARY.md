@@ -14,4 +14,5 @@
 * [條件渲染](kuai-su-kai-shi/if-elsepan-duan-shi.md)
 * [列表&Keys](kuai-su-kai-shi/lie-886826-keys.md)
 * [表單](kuai-su-kai-shi/biao-dan.md)
+* [狀態提升](kuai-su-kai-shi/zhuang-tai-ti-sheng.md)
 
