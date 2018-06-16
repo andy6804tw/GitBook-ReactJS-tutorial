@@ -15,4 +15,5 @@
 * [列表&Keys](kuai-su-kai-shi/lie-886826-keys.md)
 * [表單](kuai-su-kai-shi/biao-dan.md)
 * [狀態提升](kuai-su-kai-shi/zhuang-tai-ti-sheng.md)
+* [組合vs繼承](kuai-su-kai-shi/zu-he-vs-ji-cheng.md)
 
